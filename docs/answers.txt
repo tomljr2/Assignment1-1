@@ -1,0 +1,73 @@
+a)
+
+JustinPC@Justin MINGW64 ~/Desktop/Assignment1-1 (master)
+$ git commit -m"Added status of repository in status.txt"
+[master 59e6953] Added status of repository in status.txt
+ 1 file changed, 9 insertions(+)
+
+JustinPC@Justin MINGW64 ~/Desktop/Assignment1-1 (master)
+$ git push origin master
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 536 bytes | 178.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/tomljr2/Assignment1-1.git
+   209615a..59e6953  master -> master
+
+b)
+
+There have been nine commits to the repository in total. To find this, I just 
+used the command "git log".
+
+c)
+.gitignore was last modified on Wed Sep 27 16:03:55 2017. I found this using the 
+command "git log -- .gitignore".
+
+d)
+
+36a8e55e4bbdd171ab57d979e1a802d740f2db9b
+a46d9263dfca5ecc9a803da298fcb3b2e229131f
+
+e)
+
+Branches can be used to separate work for more organization and let development
+be managed on one branch, while the main project is available on the master
+branch. It also allows developers to work individually with the same project
+in their own branch to add onto the master branch.
+
+f)
+
+git status allows you to see the state of the current repository that you are
+working with and any changes that haven't been committed and pushed to the 
+master branch. git log allows you to see the history and different versions
+of the repository.
+
+g)
+
+You can use "git log -- Weapons.h" to see the commit history containing a 
+change to Weapons.h.
+
+h)
+
+You can use "git log -G'file'" to find any commit that contained the word file
+in the commit message.
+
+i)
+
+I)
+
+Inheritance is when a class takes (or inherits) data or functions from a parent
+class and use it as its own.
+
+II)
+
+Polymorphism is the idea that a class can be used to represent its child classes
+as well. For example, in an array of Weapon objects you can store a 
+CommonSpear object.
+
+III)
+
+Encapsulation is the idea of allowing outside data to use (or not use) internal
+data. In C++ this is done using private,protected, and public.
