@@ -6,7 +6,8 @@ OBJS=		\
 		$(BUILD_DIR)/Weapon.o \
 		$(BUILD_DIR)/WeaponFactory.o \
 		$(BUILD_DIR)/CommonSword.o \
-		$(BUILD_DIR)/CommonSpear.o 
+		$(BUILD_DIR)/CommonSpear.o \
+		$(BUILD_DIR)/SimpleAxe.o
 
 all: main.out
 
@@ -16,8 +17,7 @@ main.out: $(OBJS)
 $(BUILD_DIR)/main.o: $(BUILD_DIR) $(BUILD_DIR)/Weapon.o $(BUILD_DIR)/WeaponFactory.o
 	$(CXX) $(CXXFLAGS) -c -o $@ main.cpp
 
-
-$(BUILD_DIR)/WeaponFactory.o: $(BUILD_DIR) $(BUILD_DIR)/CommonSword.o $(BUILD_DIR)/CommonSpear.o WeaponFactory.cpp WeaponFactory.h
+$(BUILD_DIR)/WeaponFactory.o: $(BUILD_DIR) $(BUILD_DIR)/CommonSword.o $(BUILD_DIR)/CommonSpear.o $(BUILD_DIR)/SimpleAxe.o WeaponFactory.cpp WeaponFactory.h
 	$(CXX) $(CXXFLAGS) -c -o $@ WeaponFactory.cpp
 
 $(BUILD_DIR)/CommonSword.o: $(BUILD_DIR) $(BUILD_DIR)/Weapon.o CommonSword.cpp CommonSword.h
@@ -29,15 +29,18 @@ $(BUILD_DIR)/CommonSpear.o: $(BUILD_DIR) $(BUILD_DIR)/Weapon.o CommonSpear.cpp C
 $(BUILD_DIR)/Weapon.o: $(BUILD_DIR) Weapon.cpp Weapon.h
 	$(CXX) $(CXXFLAGS) -c -o $@ Weapon.cpp
 
+$(BUILD_DIR)/SimpleAxe.o: $(BUILD_DIR) $(BUILD_DIR)/Weapon.o SimpleAxe.cpp SimpleAxe.h
+	$(CXX) $(CXXFLAGS) -c -o $@ SimpleAxe.cpp
+
 clean:
 	rm -f $(BUILD_DIR)/Weapon.o
 	rm -f $(BUILD_DIR)/WeaponFactory.o
 	rm -f $(BUILD_DIR)/main.o
 	rm -f $(BUILD_DIR)/CommonSword.o
 	rm -f $(BUILD_DIR)/CommonSpear.o
+	rm -f $(BUILD_DIR)/SimpleAxe.o
 
 	rm -rf $(BUILD_DIR)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
-
