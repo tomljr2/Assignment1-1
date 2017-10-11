@@ -8,7 +8,8 @@ OBJS=		\
 		$(BUILD_DIR)/CommonSword.o \
 		$(BUILD_DIR)/CommonSpear.o \
 		$(BUILD_DIR)/SimpleAxe.o \
-		$(BUILD_DIR)/CrazyRandomSword.o
+		$(BUILD_DIR)/CrazyRandomSword.o \
+		$(BUILD_DIR)/WarhammerOfEven.o
 
 all: main.out
 
@@ -18,7 +19,7 @@ main.out: $(OBJS)
 $(BUILD_DIR)/main.o: $(BUILD_DIR) $(BUILD_DIR)/Weapon.o $(BUILD_DIR)/WeaponFactory.o
 	$(CXX) $(CXXFLAGS) -c -o $@ main.cpp
 
-$(BUILD_DIR)/WeaponFactory.o: $(BUILD_DIR) $(BUILD_DIR)/CommonSword.o $(BUILD_DIR)/CommonSpear.o $(BUILD_DIR)/SimpleAxe.o $(BUILD_DIR)/CrazyRandomSword.o WeaponFactory.cpp WeaponFactory.h
+$(BUILD_DIR)/WeaponFactory.o: $(BUILD_DIR) $(BUILD_DIR)/CommonSword.o $(BUILD_DIR)/CommonSpear.o $(BUILD_DIR)/SimpleAxe.o $(BUILD_DIR)/CrazyRandomSword.o $(BUILD_DIR)/WarhammerOfEven.o WeaponFactory.cpp WeaponFactory.h
 	$(CXX) $(CXXFLAGS) -c -o $@ WeaponFactory.cpp
 
 $(BUILD_DIR)/CommonSword.o: $(BUILD_DIR) $(BUILD_DIR)/Weapon.o CommonSword.cpp CommonSword.h
@@ -36,6 +37,9 @@ $(BUILD_DIR)/SimpleAxe.o: $(BUILD_DIR) $(BUILD_DIR)/Weapon.o SimpleAxe.cpp Simpl
 $(BUILD_DIR)/CrazyRandomSword.o: $(BUILD_DIR) $(BUILD_DIR)/Weapon.o CrazyRandomSword.cpp CrazyRandomSword.h
 	$(CXX) $(CXXFLAGS) -c -o $@ CrazyRandomSword.cpp
 
+$(BUILD_DIR)/WarhammerOfEven.o: $(BUILD_DIR) $(BUILD_DIR)/Weapon.o WarhammerOfEven.cpp WarhammerOfEven.h
+	$(CXX) $(CXXFLAGS) -c -o $@ WarhammerOfEven.cpp
+
 clean:
 	rm -f $(BUILD_DIR)/Weapon.o
 	rm -f $(BUILD_DIR)/WeaponFactory.o
@@ -43,6 +47,8 @@ clean:
 	rm -f $(BUILD_DIR)/CommonSword.o
 	rm -f $(BUILD_DIR)/CommonSpear.o
 	rm -f $(BUILD_DIR)/SimpleAxe.o
+	rm -f $(BUILD_DIR)/CrazyRandomSword.o
+	rm -f $(BUILD_DIR)/WarhammerOfEven.o
 
 	rm -rf $(BUILD_DIR)
 
